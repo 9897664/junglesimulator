@@ -50,6 +50,7 @@ public class EventSimulator {
         System.out.println("Ягуар запрыгнул на дерево! -8 энергии.");
     }
 
+    \
 }
 
 
