@@ -16,7 +16,7 @@ public class EventSimulator {
     // 90 - 100 // 10% // ягуар нашёл оставленную кем-то добычу -2 energy; + 4 здоровья
     // энергия = 0 то -5 здоровья
 
-    private void activatEvent(){
+    private void activatEvent() {
 
     }
 
@@ -28,19 +28,17 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         System.out.println("Ягуар поспал! +8 энергии.");
-      }
-      private void move(Jaguar jaguar) {
+    }
+
+    private void move(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
         energy = energy - 5;
-        if (energy < 0){
+        if (energy < 0) {
             energy = 0;
         }
         jaguar.setEnergy(energy);
-          System.out.println("Ягуар побегал! -5 энергии.");
-      }
-
-
-
+        System.out.println("Ягуар побегал! -5 энергии.");
     }
+}
 
 
