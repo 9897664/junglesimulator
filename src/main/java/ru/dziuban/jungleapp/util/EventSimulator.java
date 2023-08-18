@@ -144,6 +144,14 @@ public class EventSimulator {
         System.out.println("Ягуар нашёл оставленную добычу! -2 энергии.");
     }
 
+    private boolean statusCheker(Jaguar jaguar) {
+        if (jaguar.getHealth() <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
 
 
