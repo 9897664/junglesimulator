@@ -76,6 +76,22 @@ public class EventSimulator {
         System.out.println("Ягуар съел капибару! -4 энергии");
     }
 
+    private void ateAnaconda(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        int health = jaguar.getHealth();
+        energy = energy - 10;
+        if (energy > 100) {
+            energy = 100;
+        }
+        health = health + (int) (jaguar.getFangs() * 8);
+        if (health > 100) {
+            health = 100;
+        }
+        jaguar.setEnergy(energy);
+        jaguar.setHealth(health);
+        System.out.println("Ягуару повезло, он съел анаконду! -10 энергии");
+    }
+
 }
 
 
