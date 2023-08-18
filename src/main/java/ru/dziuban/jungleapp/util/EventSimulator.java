@@ -73,7 +73,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-        System.out.println("Ягуар съел капибару! -4 энергии");
+        System.out.println("Ягуар съел капибару! -4 энергии.");
     }
 
     private void ateAnaconda(Jaguar jaguar) {
@@ -89,7 +89,17 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-        System.out.println("Ягуару повезло, он съел анаконду! -10 энергии");
+        System.out.println("Ягуару повезло, он съел анаконду! -10 энергии.");
+    }
+
+    private void pumaAttack(Jaguar jaguar) {
+        int health = jaguar.getHealth();
+        health = health - 12;
+        if (health < 0) {
+            health = 0;
+        }
+        jaguar.setHealth(health);
+        System.out.println("О нет! На ягуара напала пума! -12 энергии.");
     }
 
 }
