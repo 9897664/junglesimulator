@@ -115,7 +115,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-        System.out.println("Ягуар съел каймана! -5 энергии.");
+        System.out.println("Ягуар съел каймана! -5 энергии");
     }
 
 }
