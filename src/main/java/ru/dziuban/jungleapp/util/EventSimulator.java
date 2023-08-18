@@ -102,6 +102,22 @@ public class EventSimulator {
         System.out.println("О нет! На ягуара напала пума! -12 энергии.");
     }
 
+    private void ateCayman(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        int health = jaguar.getHealth();
+        energy = energy - 5;
+        if (energy > 100) {
+            energy = 100;
+        }
+        health = health + (int) (jaguar.getFangs() * 8);
+        if (health > 100) {
+            health = 100;
+        }
+        jaguar.setEnergy(energy);
+        jaguar.setHealth(health);
+        System.out.println("Ягуар съел каймана! -5 энергии.");
+    }
+
 }
 
 
