@@ -118,6 +118,16 @@ public class EventSimulator {
         System.out.println("Ягуар съел каймана! -5 энергии");
     }
 
+    private void swim(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        energy = energy - 3;
+        if (energy < 0) {
+            energy = 0;
+        }
+        jaguar.setEnergy(energy);
+        System.out.println("Ягуар поплавал! -3 энергии.");
+    }
+
 }
 
 
