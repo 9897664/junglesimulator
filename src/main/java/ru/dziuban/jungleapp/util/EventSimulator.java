@@ -57,7 +57,7 @@ public class EventSimulator {
             health = 0;
         }
         jaguar.setHealth(health);
-        System.out.println("О нет!На ягуара напал охотник! -20 энергии.");
+        System.out.println("О нет! На ягуара напал охотник! -20 энергии.");
     }
 
 }
