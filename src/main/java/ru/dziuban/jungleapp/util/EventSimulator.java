@@ -50,6 +50,16 @@ public class EventSimulator {
         System.out.println("Ягуар запрыгнул на дерево! -8 энергии.");
     }
 
+    private void hunterAttack(Jaguar jaguar) {
+        int health = jaguar.getHealth();
+        health = health - 20;
+        if (health < 0) {
+            health = 0;
+        }
+        jaguar.setHealth(health);
+        System.out.println("О нет! На ягуара напал охотник! -20 энергии.");
+    }
+
 }
 
 
