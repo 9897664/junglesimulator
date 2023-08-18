@@ -29,7 +29,18 @@ public class EventSimulator {
         jaguar.setEnergy(energy);
         System.out.println("Ягуар поспал! +8 энергии.");
       }
+      private void move(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        energy = energy - 5;
+        if (energy < 0){
+            energy = 0;
+        }
+        jaguar.setEnergy(energy);
+          System.out.println("Ягуар побегал! -5 энергии.");
+      }
+
+
 
     }
 
-}
+
