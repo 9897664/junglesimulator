@@ -4,20 +4,19 @@ import ru.dziuban.jungleapp.model.Jaguar;
 
 public class EventSimulator {
 
-    // 0 - 10 // 10% // ягуар поспал - +8 энергии
-    // 10 - 20 // 10% // ягуар просто пробежал -5 энергии
-    // 20 - 30 // 10% // ягуар запрыгнул на дерево - 8 energy
-    // 30 - 40 // 10% // на ягуара напал охотник - 20 здоровья
-    // 40 - 50 // 10% // ягуар съел капибару -4 energy; coeff * 6 здоровья
-    // 50 - 60 // 10% // ягуар съел анаконду -10 energy; coeff * 8 здоровья
-    // 60 - 70 // 10% // на ягуара напала пума - 12 здоровья
-    // 70 - 80 // 10% // ягуар съел каймана -5 energy; coeff * 8 здоровья
+    // 0 - 10 // 10% // ягуар поспал - +7 энергии
+    // 10 - 20 // 10% // ягуар просто пробежал -6 энергии
+    // 20 - 30 // 10% // ягуар запрыгнул на дерево - 10 energy
+    // 30 - 40 // 10% // на ягуара напал охотник - 25 здоровья
+    // 40 - 50 // 10% // ягуар съел капибару -6 energy; coeff * 4 здоровья
+    // 50 - 60 // 10% // ягуар съел анаконду -15 energy; coeff * 6 здоровья
+    // 60 - 70 // 10% // на ягуара напала пума - 17 здоровья
+    // 70 - 80 // 10% // ягуар съел каймана -5 energy; coeff * 4 здоровья
     // 80 - 90 // 10% // ягуар поплавал -3 energy
     // 90 - 100 // 10% // ягуар нашёл оставленную кем-то добычу -2 energy; coeff * 4 здоровья
     // энергия = 0 то -5 здоровья
 
-    private void StartSimulation(Jaguar jaguar) {
-        Math.random();
+    public void startSimulation(Jaguar jaguar) {
         while (checkStatus(jaguar)) {
             int eventNumber = (int) (Math.random() * 100);
             if (eventNumber >= 0 && eventNumber < 10) {
@@ -48,18 +47,18 @@ public class EventSimulator {
 
     private void sleepEvent(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
-        energy = energy + 8;
+        energy = energy + 7;
         if (energy > 100) {
             energy = 100;
         }
         jaguar.setEnergy(energy);
         energyChecker(jaguar);
-        System.out.println("Ягуар поспал! +8 энергии.");
+        System.out.println("Ягуар поспал! +7 энергии.");
     }
 
     private void move(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
-        energy = energy - 5;
+        energy = energy - 6;
         if (energy < 0) {
             energy = 0;
         }
@@ -70,30 +69,30 @@ public class EventSimulator {
 
     private void jump(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
-        energy = energy - 8;
+        energy = energy - 10;
         if (energy < 0) {
             energy = 0;
         }
         jaguar.setEnergy(energy);
         energyChecker(jaguar);
-        System.out.println("Ягуар запрыгнул на дерево! -8 энергии.");
+        System.out.println("Ягуар запрыгнул на дерево! -10 энергии.");
     }
 
     private void hunterAttack(Jaguar jaguar) {
         int health = jaguar.getHealth();
-        health = health - 20;
+        health = health - 25;
         if (health < 0) {
             health = 0;
         }
         jaguar.setHealth(health);
         energyChecker(jaguar);
-        System.out.println("О нет! На ягуара напал охотник! -20 энергии.");
+        System.out.println("О нет! На ягуара напал охотник! -25 энергии.");
     }
 
     private void ateCapybara(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
-        energy = energy - 4;
+        energy = energy - 6;
         if (energy > 100) {
             energy = 100;
         }
@@ -104,35 +103,35 @@ public class EventSimulator {
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         energyChecker(jaguar);
-        System.out.println("Ягуар съел капибару! -4 энергии.");
+        System.out.println("Ягуар съел капибару! -6 энергии.");
     }
 
     private void ateAnaconda(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
-        energy = energy - 10;
+        energy = energy - 15;
         if (energy > 100) {
             energy = 100;
         }
-        health = health + (int) (jaguar.getFangs() * 8);
+        health = health + (int) (jaguar.getFangs() * 6);
         if (health > 100) {
             health = 100;
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         energyChecker(jaguar);
-        System.out.println("Ягуару повезло, он съел анаконду! -10 энергии.");
+        System.out.println("Ягуару повезло, он съел анаконду! -15 энергии.");
     }
 
     private void pumaAttack(Jaguar jaguar) {
         int health = jaguar.getHealth();
-        health = health - 12;
+        health = health - 17;
         if (health < 0) {
             health = 0;
         }
         jaguar.setHealth(health);
         energyChecker(jaguar);
-        System.out.println("О нет! На ягуара напала пума! -12 энергии.");
+        System.out.println("О нет! На ягуара напала пума! -17 энергии.");
     }
 
     private void ateCayman(Jaguar jaguar) {
@@ -142,7 +141,7 @@ public class EventSimulator {
         if (energy > 100) {
             energy = 100;
         }
-        health = health + (int) (jaguar.getFangs() * 8);
+        health = health + (int) (jaguar.getFangs() * 4);
         if (health > 100) {
             health = 100;
         }
@@ -181,6 +180,7 @@ public class EventSimulator {
     }
 
     private boolean checkStatus(Jaguar jaguar) {
+        System.out.println("hp: " +jaguar.getHealth() + " energy: " + jaguar.getEnergy());
         if (jaguar.getHealth() <= 0) {
             return false;
         } else {
