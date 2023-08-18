@@ -16,7 +16,7 @@ public class EventSimulator {
     // 90 - 100 // 10% // ягуар нашёл оставленную кем-то добычу -2 energy; coeff * 4 здоровья
     // энергия = 0 то -5 здоровья
 
-    private void activatEvent() {
+    private void StartSimulation() {
 
     }
 
@@ -27,6 +27,7 @@ public class EventSimulator {
             energy = 100;
         }
         jaguar.setEnergy(energy);
+        energyCheker(jaguar);
         System.out.println("Ягуар поспал! +8 энергии.");
     }
 
@@ -37,6 +38,7 @@ public class EventSimulator {
             energy = 0;
         }
         jaguar.setEnergy(energy);
+        energyCheker(jaguar);
         System.out.println("Ягуар побегал! -5 энергии.");
     }
 
@@ -47,6 +49,7 @@ public class EventSimulator {
             energy = 0;
         }
         jaguar.setEnergy(energy);
+        energyCheker(jaguar);
         System.out.println("Ягуар запрыгнул на дерево! -8 энергии.");
     }
 
@@ -57,6 +60,7 @@ public class EventSimulator {
             health = 0;
         }
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("О нет! На ягуара напал охотник! -20 энергии.");
     }
 
@@ -73,6 +77,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("Ягуар съел капибару! -4 энергии.");
     }
 
@@ -89,6 +94,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("Ягуару повезло, он съел анаконду! -10 энергии.");
     }
 
@@ -99,6 +105,7 @@ public class EventSimulator {
             health = 0;
         }
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("О нет! На ягуара напала пума! -12 энергии.");
     }
 
@@ -115,6 +122,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("Ягуар съел каймана! -5 энергии.");
     }
 
@@ -125,6 +133,7 @@ public class EventSimulator {
             energy = 0;
         }
         jaguar.setEnergy(energy);
+        energyCheker(jaguar);
         System.out.println("Ягуар поплавал! -3 энергии.");
     }
 
@@ -141,6 +150,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
+        energyCheker(jaguar);
         System.out.println("Ягуар нашёл оставленную добычу! -2 энергии.");
     }
 
@@ -149,6 +159,17 @@ public class EventSimulator {
             return false;
         } else {
             return true;
+        }
+    }
+
+    private void energyCheker(Jaguar jaguar) {
+        if (jaguar.getEnergy() <= 0) {
+            int health = jaguar.getHealth();
+            health = health - 5;
+            if (health < 0) {
+                health = 0;
+            }
+            jaguar.setHealth(health);
         }
     }
 
