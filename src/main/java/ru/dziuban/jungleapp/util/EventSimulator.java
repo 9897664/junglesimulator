@@ -115,7 +115,7 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-        System.out.println("Ягуар съел каймана! -5 энергии");
+        System.out.println("Ягуар съел каймана! -5 энергии.");
     }
 
     private void swim(Jaguar jaguar) {
@@ -126,6 +126,22 @@ public class EventSimulator {
         }
         jaguar.setEnergy(energy);
         System.out.println("Ягуар поплавал! -3 энергии.");
+    }
+
+    private void ateSnack(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        int health = jaguar.getHealth();
+        energy = energy - 2;
+        if (energy > 100) {
+            energy = 100;
+        }
+        health = health + (int) (jaguar.getFangs() * 4);
+        if (health > 100) {
+            health = 100;
+        }
+        jaguar.setEnergy(energy);
+        jaguar.setHealth(health);
+        System.out.println("Ягуар нашёл оставленную добычу! -2 энергии.");
     }
 
 }
