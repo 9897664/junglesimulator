@@ -40,6 +40,11 @@ public class EventSimulator {
             } else if (eventNumber >= 90 && eventNumber < 100) {
                 ateSnack(jaguar);
             }
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException();
+            }
         }
         System.out.println("Ооо нет! Ягуар умер! The end!");
 
@@ -180,7 +185,7 @@ public class EventSimulator {
     }
 
     private boolean checkStatus(Jaguar jaguar) {
-        System.out.println("hp: " +jaguar.getHealth() + " energy: " + jaguar.getEnergy());
+        System.out.println("hp: " + jaguar.getHealth() + " energy: " + jaguar.getEnergy());
         if (jaguar.getHealth() <= 0) {
             return false;
         } else {
