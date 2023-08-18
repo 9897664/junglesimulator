@@ -8,12 +8,12 @@ public class EventSimulator {
     // 10 - 20 // 10% // ягуар просто пробежал -5 энергии
     // 20 - 30 // 10% // ягуар запрыгнул на дерево - 8 energy
     // 30 - 40 // 10% // на ягуара напал охотник - 20 здоровья
-    // 40 - 50 // 10% // ягуар съел капибару -3 energy; + 8 здоровья
-    // 50 - 60 // 10% // ягуар съел анаконду -10 energy; + 9 здоровья
+    // 40 - 50 // 10% // ягуар съел капибару -4 energy; coeff * 6 здоровья
+    // 50 - 60 // 10% // ягуар съел анаконду -10 energy; coeff * 8 здоровья
     // 60 - 70 // 10% // на ягуара напала пума - 12 здоровья
-    // 70 - 80 // 10% // ягуар съел каймана -5 energy; + 8 здоровья
+    // 70 - 80 // 10% // ягуар съел каймана -5 energy; coeff * 8 здоровья
     // 80 - 90 // 10% // ягуар поплавал -3 energy
-    // 90 - 100 // 10% // ягуар нашёл оставленную кем-то добычу -2 energy; + 4 здоровья
+    // 90 - 100 // 10% // ягуар нашёл оставленную кем-то добычу -2 energy; coeff * 4 здоровья
     // энергия = 0 то -5 здоровья
 
     private void activatEvent() {
@@ -58,6 +58,22 @@ public class EventSimulator {
         }
         jaguar.setHealth(health);
         System.out.println("О нет! На ягуара напал охотник! -20 энергии.");
+    }
+
+    private void ateCapybara(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        int health = jaguar.getHealth();
+        energy = energy - 4;
+        if (energy > 100) {
+            energy = 100;
+        }
+        health = health + (int) (jaguar.getFangs() * 4);
+        if (health > 100) {
+            health = 100;
+        }
+        jaguar.setEnergy(energy);
+        jaguar.setHealth(health);
+        System.out.println("Ягуар съел капибару! -4 энергии");
     }
 
 }
