@@ -47,7 +47,6 @@ public class EventSimulator {
             }
         }
         System.out.println("Ооо нет! Ягуар умер! The end!");
-
     }
 
     private void sleepEvent(Jaguar jaguar) {
@@ -98,8 +97,8 @@ public class EventSimulator {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
         energy = energy - 6;
-        if (energy > 100) {
-            energy = 100;
+        if (energy < 0) {
+            energy = 0;
         }
         health = health + (int) (jaguar.getFangs() * 4);
         if (health > 100) {
@@ -115,8 +114,8 @@ public class EventSimulator {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
         energy = energy - 15;
-        if (energy > 100) {
-            energy = 100;
+        if (energy < 0) {
+            energy = 0;
         }
         health = health + (int) (jaguar.getFangs() * 6);
         if (health > 100) {
@@ -143,8 +142,8 @@ public class EventSimulator {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
         energy = energy - 5;
-        if (energy > 100) {
-            energy = 100;
+        if (energy < 0) {
+            energy = 0;
         }
         health = health + (int) (jaguar.getFangs() * 4);
         if (health > 100) {
@@ -171,8 +170,8 @@ public class EventSimulator {
         int energy = jaguar.getEnergy();
         int health = jaguar.getHealth();
         energy = energy - 2;
-        if (energy > 100) {
-            energy = 100;
+        if (energy < 0) {
+            energy = 0;
         }
         health = health + (int) (jaguar.getFangs() * 4);
         if (health > 100) {
