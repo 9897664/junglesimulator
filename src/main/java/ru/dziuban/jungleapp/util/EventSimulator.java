@@ -185,11 +185,7 @@ public class EventSimulator {
 
     private boolean checkStatus(Jaguar jaguar) {
         System.out.println("hp: " + jaguar.getHealth() + " energy: " + jaguar.getEnergy());
-        if (jaguar.getHealth() <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return jaguar.getHealth() > 0;
     }
 
     private void energyChecker(Jaguar jaguar) {
